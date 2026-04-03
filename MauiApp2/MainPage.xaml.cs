@@ -15,7 +15,7 @@ namespace MauiApp2
         {
             InitializeComponent();
             _db = db;
-            Task.Run(PopulateGoalsCollection);
+            Task.Run(async () => goalsCollection.ItemsSource = await _db.GetAllGoalsDto());
         }
 
 
@@ -37,31 +37,12 @@ namespace MauiApp2
                     StartOn = DateTime.Now,
                     EndOn = validEndTimeOfAGoal
                 });
-                Task.Run(async () => goalsCollection.ItemsSource = await _db.GetEntries());
-                PopulateGoalsCollection();
+                goalsCollection.ItemsSource = await  _db.GetAllGoalsDto();
             }
             else
             {
                 await DisplayAlertAsync("Error", "Can't parse end date", "Close");
             }
-        }
-
-        private double CalculateGoalProgress(DateTime start, DateTime end)
-        {
-            var result = 0.0D;
-            if (start == null || end == null) return result;
-            if (DateTime.Today > end) return 1.0D;
-            if (start > end || DateTime.Today < start) return result;
-            var todayProgress = start - DateTime.Now;
-            var goalTime = end - start;
-            result = goalTime / todayProgress;
-            return result;
-        }
-
-        private async void PopulateGoalsCollection()
-        {
-            var goalsFromDb = await _db.GetEntries();
-            goalsCollection.ItemsSource = goalsFromDb.Select(x => (GoalDto)x).Select(x => x.Progress = CalculateGoalProgress(x.StartOn, x.EndOn)).ToList();
         }
     }
 }
