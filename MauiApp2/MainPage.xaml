@@ -8,35 +8,38 @@
                FontSize="20"
                HorizontalOptions="Center"
                VerticalOptions="Center" />
-        <Label Text="Create new goal:" />
+
         <Entry x:Name="goalName"
-               Placeholder="Descirption" />
+               Placeholder="Descirption" 
+               Margin="10"/>
         <Entry x:Name="goalEndDate"
-               Placeholder="End date YYYY-MM-DD" />
+               Placeholder="End date YYYY-MM-DD" 
+               Margin="10"/>
         <Button x:Name="addGoal" 
                 Text="Add"
-                Clicked="OnAddGoalClicked" />
+                Clicked="OnAddGoalClicked"
+                Margin="10"/>
         <Button x:Name="deleteGoal" 
                 Text="Delete"
-            Clicked="OnDeleteGoalClicked" />
-
-
-        <Label Text="Goals List"
-               FontSize="20"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-
+            Clicked="OnDeleteGoalClicked" 
+                Margin="10"/>
 
         <CollectionView x:Name="goalsCollection">
             <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <VerticalStackLayout Padding="10">
-                        
+                <DataTemplate >
+                    <VerticalStackLayout 
+                        Padding="10">
                         <Grid ColumnDefinitions="Auto"
-                              RowDefinitions="Auto, Auto, Auto, Auto">
-                            <Label Grid.Row="0" Text="Goal Title" />
-                            <Label Grid.Row="1" Text="Started On: date, how many days ago" />
-                            <Label Grid.Row="2" Text="Ending on: date, how many days left" />
+                              RowDefinitions="Auto, Auto, Auto, Auto" HorizontalOptions="Center" >
+                            <Label Grid.Row="0" 
+                                   Text="Goal Title" 
+                                   HorizontalOptions="Center"/>
+                            <Label Grid.Row="1" 
+                                   Text="Started On: date, how many days ago" 
+                                   HorizontalOptions="Center"/>
+                            <Label Grid.Row="2" 
+                                   Text="Ending on: date, how many days left" 
+                                   HorizontalOptions="Center"/>
                             <ProgressBar Grid.Row="3"
                                 x:Name="goalProgress"
                                 Progress="0.7"
