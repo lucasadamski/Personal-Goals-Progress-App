@@ -1,7 +1,6 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MauiApp2.Model;
+using SQLite;
+using System.Linq;
 
 namespace MauiApp2
 {

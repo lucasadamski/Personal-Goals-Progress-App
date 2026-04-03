@@ -32,13 +32,13 @@
                         <Grid ColumnDefinitions="Auto"
                               RowDefinitions="Auto, Auto, Auto, Auto" HorizontalOptions="Center" >
                             <Label Grid.Row="0" 
-                                   Text="Goal Title" 
+                                   Text="{Binding Title}" 
                                    HorizontalOptions="Center"/>
                             <Label Grid.Row="1" 
-                                   Text="Started On: date, how many days ago" 
+                                   Text="{Binding StarOn, StringFormat='Start: {0}'}" 
                                    HorizontalOptions="Center"/>
                             <Label Grid.Row="2" 
-                                   Text="Ending on: date, how many days left" 
+                                   Text="{Binding EndOn, StringFormat='End: {0}'}" 
                                    HorizontalOptions="Center"/>
                             <ProgressBar Grid.Row="3"
                                 x:Name="goalProgress"

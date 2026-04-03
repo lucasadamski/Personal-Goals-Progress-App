@@ -1,5 +1,7 @@
-﻿using SQLite;
+﻿using MauiApp2.Model;
+using SQLite;
 using System.Data.Common;
+using System.Linq;
 
 namespace MauiApp2
 {
@@ -13,7 +15,7 @@ namespace MauiApp2
         {
             InitializeComponent();
             _db = db;
-            Task.Run(async () => goalsCollection.ItemsSource = await _db.GetEntries());
+            Task.Run(PopulateGoalsCollection);
         }
 
 
@@ -36,7 +38,7 @@ namespace MauiApp2
                     EndOn = validEndTimeOfAGoal
                 });
                 Task.Run(async () => goalsCollection.ItemsSource = await _db.GetEntries());
-
+                PopulateGoalsCollection();
             }
             else
             {
@@ -44,7 +46,7 @@ namespace MauiApp2
             }
         }
 
-        private async Task<double> CalculateGoalProgress(DateTime start, DateTime end)
+        private double CalculateGoalProgress(DateTime start, DateTime end)
         {
             var result = 0.0D;
             if (start == null || end == null) return result;
@@ -54,6 +56,12 @@ namespace MauiApp2
             var goalTime = end - start;
             result = goalTime / todayProgress;
             return result;
+        }
+
+        private async void PopulateGoalsCollection()
+        {
+            var goalsFromDb = await _db.GetEntries();
+            goalsCollection.ItemsSource = goalsFromDb.Select(x => (GoalDto)x).Select(x => x.Progress = CalculateGoalProgress(x.StartOn, x.EndOn)).ToList();
         }
     }
 }
