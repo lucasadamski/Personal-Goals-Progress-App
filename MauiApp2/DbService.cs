@@ -10,14 +10,14 @@ namespace MauiApp2
         public SQLiteAsyncConnection _connection { get; set; }
         public DbService()
         {
-            _connection = new SQLiteAsyncConnection(FileSystem.AppDataDirectory + "testDb.db3");
-            _connection.CreateTableAsync<Entry>();
+            _connection = new SQLiteAsyncConnection(FileSystem.AppDataDirectory + "GoalDatabase.db3");
+            _connection.CreateTableAsync<Goal>();
         }
-        public async Task<List<Entry>> GetEntries()
+        public async Task<List<Goal>> GetEntries()
         {
-            return await _connection.Table<Entry>().ToListAsync();
+            return await _connection.Table<Goal>().ToListAsync();
         }
-        public async Task CreateEntry(Entry entry)
+        public async Task CreateEntry(Goal entry)
         {
             await _connection.InsertAsync(entry);
         }

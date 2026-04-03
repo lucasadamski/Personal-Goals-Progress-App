@@ -1,14 +1,14 @@
-﻿
-using SQLite;
+﻿using SQLite;
 
 namespace MauiApp2
 {
-    public class Entry
+    public class Goal
     {
         [PrimaryKey]
         [AutoIncrement]
         public int Id { get; set; }
         public string Title { get; set; }
-        public DateTime CreatedOn { get; set; }
+        public DateTime StartOn { get; set; }
+        public DateTime EndOn { get; set; }
     }
 }
