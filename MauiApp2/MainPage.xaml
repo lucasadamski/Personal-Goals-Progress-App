@@ -31,19 +31,23 @@
                         <VerticalStackLayout 
                             Padding="10">
                             <Grid ColumnDefinitions="Auto"
-                                  RowDefinitions="Auto, Auto, Auto, Auto" HorizontalOptions="Center" >
+                                  RowDefinitions="Auto, Auto, Auto, Auto, Auto" HorizontalOptions="Center" >
                                 <Label Grid.Row="0" 
                                        Text="{Binding Title}" 
                                        HorizontalOptions="Center"/>
                                 <Label Grid.Row="1" 
-                                       Text="{Binding StarOn, StringFormat='Start: {0}'}" 
+                                       Text="{Binding StartOn, StringFormat='Start: {0}'}" 
                                        HorizontalOptions="Center"/>
                                 <Label Grid.Row="2" 
                                        Text="{Binding EndOn, StringFormat='End: {0}'}" 
                                        HorizontalOptions="Center"/>
-                                <ProgressBar Grid.Row="3"
+                                <Label Grid.Row="3"
+                                    x:Name="goalProgressText"
+                                    Text="{Binding Progress, StringFormat='Progress: {0}%'}" 
+                                    HorizontalOptions="Center"/>
+                                <ProgressBar Grid.Row="4"
                                     x:Name="goalProgress"
-                                    Progress="0.7"
+                                    Progress="{Binding Progress}"
                                     ProgressColor="Green"
                                     BackgroundColor="#EEEEEE"
                                     HeightRequest="12"
