@@ -25,8 +25,7 @@ namespace MauiApp2
                 Id = x.Id,
                 Title = x.Title,
                 StartOn = x.StartOn,
-                EndOn = x.EndOn,
-                Progress = CalculateGoalProgress(x.StartOn, x.EndOn)
+                EndOn = x.EndOn
             }).ToList();
 
             return result;
@@ -37,17 +36,7 @@ namespace MauiApp2
             await _connection.InsertAsync(entry);
         }
 
-        private double CalculateGoalProgress(DateTime start, DateTime end)
-        {
-            var result = 0.0D;
-            if (start == null || end == null) return result;
-            if (DateTime.Today > end) return 1.0D;
-            if (start > end || DateTime.Today < start) return result;
-            var todayProgress = start - DateTime.Now;
-            var goalTime = end - start;
-            result = goalTime / todayProgress;
-            return result;
-        }
+     
     }
 }
 //
