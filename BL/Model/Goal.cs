@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace MauiApp2.Model
+namespace BL.Model
 {
     public class Goal
     {

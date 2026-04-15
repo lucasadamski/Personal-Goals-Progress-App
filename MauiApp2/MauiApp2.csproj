@@ -80,4 +80,8 @@
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\BL\BL.csproj" />
+	</ItemGroup>
+
 </Project>

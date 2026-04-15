@@ -1,15 +1,15 @@
-﻿using MauiApp2.Model;
+﻿using BL.Model;
 using SQLite;
-using System.Linq;
 
-namespace MauiApp2
+
+namespace BL.Services
 {
     public class DbService
     {
         public SQLiteAsyncConnection _connection { get; set; }
-        public DbService()
+        public DbService(string dbPath)
         {
-            _connection = new SQLiteAsyncConnection(FileSystem.AppDataDirectory + "GoalDatabase.db3");
+            _connection = new SQLiteAsyncConnection(dbPath);
             _connection.CreateTableAsync<Goal>();
         }
         public async Task<List<Goal>> GetEntries()

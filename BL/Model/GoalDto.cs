@@ -1,6 +1,6 @@
 ﻿
 
-namespace MauiApp2.Model
+namespace BL.Model
 {
     public class GoalDto : Goal
     {

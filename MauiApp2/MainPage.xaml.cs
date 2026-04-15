@@ -1,7 +1,5 @@
-﻿using MauiApp2.Model;
-using SQLite;
-using System.Data.Common;
-using System.Linq;
+﻿using BL.Model;
+using BL.Services;
 
 namespace MauiApp2
 {
