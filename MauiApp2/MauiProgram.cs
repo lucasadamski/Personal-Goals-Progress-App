@@ -18,7 +18,7 @@ namespace MauiApp2
 
             var dbPath = FileSystem.AppDataDirectory + "GoalDatabase.db3";
 
-            builder.Services.AddSingleton<DbService>(provider => new DbService(dbPath));
+            builder.Services.AddSingleton<DbService>(provider => new DbService(dbPath, new ProgressService()));
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
