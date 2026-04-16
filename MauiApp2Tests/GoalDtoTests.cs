@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using BL.Model;
+using BL.Services;
 
 namespace MauiApp2Tests
 {
@@ -14,7 +14,7 @@ namespace MauiApp2Tests
             var end = new DateTime(2026, 1, 1);
             var today = new DateTime(2026, 1, 5);
 
-            var sut = new GoalDto();
+            var sut = new ProgressService();
             var expectedResult = 0.0F;
             // Act
             var actualResult = sut.CalculateProgress(start, end, today);
@@ -29,7 +29,7 @@ namespace MauiApp2Tests
             var end = new DateTime(2026, 1, 5);
             var today = new DateTime(2026, 1, 5);
 
-            var sut = new GoalDto();
+            var sut = new ProgressService();
             var expectedResult = 0.0F;
             // Act
             var actualResult = sut.CalculateProgress(start, end, today);
@@ -44,7 +44,7 @@ namespace MauiApp2Tests
             var end = new DateTime(2026, 1, 5);
             var today = new DateTime(2026, 1, 6);
 
-            var sut = new GoalDto();
+            var sut = new ProgressService();
             var expectedResult = 1.0F;
             // Act
             var actualResult = sut.CalculateProgress(start, end, today);
@@ -59,7 +59,7 @@ namespace MauiApp2Tests
             var end = new DateTime(2026, 1, 6);
             var today = new DateTime(2026, 1, 5);
 
-            var sut = new GoalDto();
+            var sut = new ProgressService();
             var expectedResult = 0.0F;
             // Act
             var actualResult = sut.CalculateProgress(start, end, today);
@@ -75,7 +75,7 @@ namespace MauiApp2Tests
             var today = new DateTime(2026, 1, 6);
 
 
-            var sut = new GoalDto();
+            var sut = new ProgressService();
             var expectedResult = 0.1D;
             // Act
             var actualResult = sut.CalculateProgress(start, end, today);
@@ -92,7 +92,7 @@ namespace MauiApp2Tests
             var today = new DateTime(2026, 1, 14);
 
 
-            var sut = new GoalDto();
+            var sut = new ProgressService();
             var expectedResult = 0.9D;
             // Act
             var actualResult = sut.CalculateProgress(start, end, today);
