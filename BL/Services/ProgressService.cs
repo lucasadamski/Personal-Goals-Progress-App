@@ -1,4 +1,6 @@
-﻿namespace BL.Services
+﻿using System.Collections;
+
+namespace BL.Services
 {
     public class ProgressService : IProgressService
     {
@@ -52,11 +54,15 @@
 
         public int CalculateDaysAfterStart(DateOnly start, DateOnly today)
         {
-            throw new NotImplementedException();
+            if (start == null || today == null) return 0;
+            if (start.DayNumber >= today.DayNumber) return 0;
+            return today.DayNumber - start.DayNumber;
         }
         public int CalculateDaysLeftToEnd(DateOnly end, DateOnly today)
         {
-            throw new NotImplementedException();
+            if (end == null || today == null) return 0;
+            if (end.DayNumber <= today.DayNumber) return 0;
+            return end.DayNumber - today.DayNumber;
         }
     }
 }
