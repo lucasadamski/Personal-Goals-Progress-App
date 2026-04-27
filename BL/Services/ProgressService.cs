@@ -50,11 +50,11 @@
             return result;
         }
 
-        private int CalculateDaysAfterStart(DateOnly start, DateOnly today)
+        public int CalculateDaysAfterStart(DateOnly start, DateOnly today)
         {
             throw new NotImplementedException();
         }
-        private int CalculateDaysLeftToEnd(DateOnly end, DateOnly today)
+        public int CalculateDaysLeftToEnd(DateOnly end, DateOnly today)
         {
             throw new NotImplementedException();
         }
