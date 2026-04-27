@@ -31,7 +31,7 @@
                         <VerticalStackLayout 
                             Padding="10">
                             <Grid ColumnDefinitions="Auto"
-                                  RowDefinitions="Auto, Auto, Auto, Auto, Auto" HorizontalOptions="Center" >
+                                  RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto" HorizontalOptions="Center" >
                                 <Grid.Triggers>
                                     <DataTrigger TargetType="Grid"
                                                  Binding="{Binding IsDone}"
@@ -64,6 +64,12 @@
                                     BackgroundColor="#EEEEEE"
                                     HeightRequest="12"
                                     Margin="10" />
+                                <Label Grid.Row="5" 
+                                    Text="{Binding DaysAfterStart, StringFormat='Started {0} days ago'}" 
+                                    HorizontalOptions="Center"/>
+                                <Label Grid.Row="6" 
+                                    Text="{Binding DaysLeftToEnd, StringFormat='Ends in {0} days'}" 
+                                    HorizontalOptions="Center"/>
                             </Grid>
 
                         </VerticalStackLayout>

@@ -30,7 +30,9 @@ namespace BL.Services
                 Title = x.Title,
                 StartOn = x.StartOn,
                 EndOn = x.EndOn,
-                Progress = _progressService.CalculateProgress(x.StartOn, x.EndOn)
+                Progress = _progressService.CalculateProgress(x.StartOn, x.EndOn),
+                DaysAfterStart = _progressService.CalculateDaysAfterStart(DateOnly.FromDateTime(x.StartOn), DateOnly.FromDateTime(DateTime.Today)),
+                DaysLeftToEnd = _progressService.CalculateDaysLeftToEnd(DateOnly.FromDateTime(x.EndOn), DateOnly.FromDateTime(DateTime.Today))
             }).ToList();
 
             return result;
