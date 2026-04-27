@@ -3,11 +3,11 @@ using BL.Services;
 
 namespace MauiApp2Tests
 {
-    public class GoalDtoTests
+    public class ProgressServiceUnitTests
     {
 
         [Fact]
-        public void WhenMethodCalled_GivenStartLaterThanEnd_ThenReturnsZero()
+        public void WhenCalculateProgressCalled_GivenStartLaterThanEnd_ThenReturnsZero()
         {
             // Arrange
             var start = new DateTime(2026, 1, 5);
@@ -22,7 +22,7 @@ namespace MauiApp2Tests
             actualResult.Should().Be(expectedResult);
         }
         [Fact]
-        public void WhenMethodCalled_GivenStartSameAsEndTodaySameDay_ThenReturnsZero()
+        public void WhenCalculateProgressCalled_GivenStartSameAsEndTodaySameDay_ThenReturnsZero()
         {
             // Arrange
             var start = new DateTime(2026, 1, 5);
@@ -37,7 +37,7 @@ namespace MauiApp2Tests
             actualResult.Should().Be(expectedResult);
         }
         [Fact]
-        public void WhenMethodCalled_GivenStartSameAsEndTodayTomorrow_ThenReturnsOne()
+        public void WhenCalculateProgressCalled_GivenStartSameAsEndTodayTomorrow_ThenReturnsOne()
         {
             // Arrange
             var start = new DateTime(2026, 1, 5);
@@ -52,7 +52,7 @@ namespace MauiApp2Tests
             actualResult.Should().Be(expectedResult);
         }
         [Fact]
-        public void WhenMethodCalled_GivenEndNextDay_ThenReturnsProgress0Percent()
+        public void WhenCalculateProgressCalled_GivenEndNextDay_ThenReturnsProgress0Percent()
         {
             // Arrange
             var start = new DateTime(2026, 1, 5);
@@ -67,7 +67,7 @@ namespace MauiApp2Tests
             actualResult.Should().Be(expectedResult);
         }
         [Fact]
-        public void WhenMethodCalled_GivenEndInTenDays_ThenReturnsProgress10Percent()
+        public void WhenCalculateProgressCalled_GivenEndInTenDays_ThenReturnsProgress10Percent()
         {
             // Arrange
             var start = new DateTime(2026, 1, 5);
@@ -84,7 +84,7 @@ namespace MauiApp2Tests
         }
 
         [Fact]
-        public void WhenMethodCalled_GivenEndTomorrowAndStartedNineDaysAgo_ThenReturnsProgress90Percent()
+        public void WhenCalculateProgressCalled_GivenEndTomorrowAndStartedNineDaysAgo_ThenReturnsProgress90Percent()
         {
             // Arrange
             var start = new DateTime(2026, 1, 5);

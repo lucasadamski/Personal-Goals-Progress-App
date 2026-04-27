@@ -32,18 +32,30 @@
                             Padding="10">
                             <Grid ColumnDefinitions="Auto"
                                   RowDefinitions="Auto, Auto, Auto, Auto, Auto" HorizontalOptions="Center" >
+                                <Grid.Triggers>
+                                    <DataTrigger TargetType="Grid"
+                                                 Binding="{Binding IsDone}"
+                                                 Value="True">
+                                        <Setter Property="BackgroundColor" Value="DarkGreen" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Grid"
+                                                  Binding="{Binding IsDone}"
+                                                  Value="False">     
+                                        <Setter Property="BackgroundColor" Value="DarkBlue" />
+                                    </DataTrigger>
+                                </Grid.Triggers>
                                 <Label Grid.Row="0" 
                                        Text="{Binding Title}" 
                                        HorizontalOptions="Center"/>
                                 <Label Grid.Row="1" 
-                                       Text="{Binding StartOn, StringFormat='Start: {0}'}" 
+                                       Text="{Binding StartOn, StringFormat='Start: {0:dd-MM-yyyy}'}" 
                                        HorizontalOptions="Center"/>
                                 <Label Grid.Row="2" 
-                                       Text="{Binding EndOn, StringFormat='End: {0}'}" 
+                                       Text="{Binding EndOn, StringFormat='End: {0:dd-MM-yyyy}'}" 
                                        HorizontalOptions="Center"/>
                                 <Label Grid.Row="3"
                                     x:Name="goalProgressText"
-                                    Text="{Binding Progress, StringFormat='Progress: {0}%'}" 
+                                    Text="{Binding ProgressPercentage, StringFormat='Progress: {0}%'}" 
                                     HorizontalOptions="Center"/>
                                 <ProgressBar Grid.Row="4"
                                     x:Name="goalProgress"
