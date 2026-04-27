@@ -5,6 +5,12 @@
 
     <ScrollView>
         <StackLayout>
+            <Image Source="logo.png" 
+                   HeightRequest="300"
+                   WidthRequest="400"
+                   >
+
+            </Image>
             <Label Text="Personal Goal Progress App"
                    FontSize="20"
                    HorizontalOptions="Center"
