@@ -26,21 +26,22 @@ namespace MauiApp2
         async void OnAddGoalClicked(object? sender, EventArgs eventArgs)
         {
             var button = (Button)sender;
-            if(DateTime.TryParse(goalEndDate.Text, out DateTime validEndTimeOfAGoal))
+
+            if (goalEndDate.Date != null)
             {
                 await DisplayAlertAsync("Success", "Created new goal. Good luck!", "Close");
                 _db.CreateEntry(new Goal
                 {
                     Title = goalName.Text,
                     StartOn = DateTime.Now,
-                    EndOn = validEndTimeOfAGoal
+                    EndOn = (DateTime)goalEndDate.Date
                 });
-                goalsCollection.ItemsSource = await  _db.GetAllGoalsDto();
+                goalsCollection.ItemsSource = await _db.GetAllGoalsDto();
             }
             else
             {
-                await DisplayAlertAsync("Error", "Can't parse end date", "Close");
-            }
+                await DisplayAlertAsync("Error", "End date not chosen", "Close");
+            } 
         }
     }
 }
