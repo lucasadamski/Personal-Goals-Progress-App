@@ -5,17 +5,10 @@
 
     <ScrollView>
         <StackLayout>
-            <Image Source="logo.png" 
+            <Image Source="logo_white.png" 
                    HeightRequest="300"
-                   WidthRequest="400"
-                   >
-
+                   WidthRequest="400">
             </Image>
-            <Label Text="Personal Goal Progress App"
-                   FontSize="20"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center" />
-
             <Entry x:Name="goalName"
                    Placeholder="Descirption" 
                    Margin="10"/>
