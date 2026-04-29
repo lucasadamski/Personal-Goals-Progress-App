@@ -12,12 +12,26 @@
             <Entry x:Name="goalName"
                    Placeholder="Descirption" 
                    Margin="10"/>
-            <Label Text="Start" />
-            <DatePicker x:Name="goalStartDate"
-                        Format="dd-MM-yyyy" />
-            <Label Text="End" />
-            <DatePicker x:Name="goalEndDate"
-                    Format="dd-MM-yyyy" />
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center">
+                <Label Text="Start"
+                       WidthRequest="50"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
+                <DatePicker x:Name="goalStartDate"
+                            Format="dd-MM-yyyy" 
+                            WidthRequest="130"/>
+                <Label Text="End" 
+                       WidthRequest="80"
+                       Padding="20"
+                       VerticalTextAlignment="Center"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
+                <DatePicker x:Name="goalEndDate"
+                            Format="dd-MM-yyyy" 
+                            WidthRequest="130"/>
+            </StackLayout>
             <Button x:Name="addGoal" 
                     Text="Add"
                     Clicked="OnAddGoalClicked"
