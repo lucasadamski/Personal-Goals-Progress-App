@@ -12,9 +12,10 @@
             <Entry x:Name="goalName"
                    Placeholder="Descirption" 
                    Margin="10"/>
-            <Label Text="End date">
-                
-            </Label>
+            <Label Text="Start" />
+            <DatePicker x:Name="goalStartDate"
+                        Format="dd-MM-yyyy" />
+            <Label Text="End" />
             <DatePicker x:Name="goalEndDate"
                     Format="dd-MM-yyyy" />
             <Button x:Name="addGoal" 
