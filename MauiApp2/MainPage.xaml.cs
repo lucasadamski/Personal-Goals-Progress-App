@@ -26,14 +26,14 @@ namespace MauiApp2
         async void OnAddGoalClicked(object? sender, EventArgs eventArgs)
         {
             var button = (Button)sender;
-
+            if (goalStartDate.Date == null) goalStartDate.Date = DateTime.Now;
             if (goalEndDate.Date != null)
             {
                 await DisplayAlertAsync("Success", "Created new goal. Good luck!", "Close");
                 _db.CreateEntry(new Goal
                 {
                     Title = goalName.Text,
-                    StartOn = DateTime.Now,
+                    StartOn = (DateTime)goalStartDate.Date,
                     EndOn = (DateTime)goalEndDate.Date
                 });
                 goalsCollection.ItemsSource = await _db.GetAllGoalsDto();
